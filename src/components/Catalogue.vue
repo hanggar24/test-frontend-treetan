@@ -1,12 +1,13 @@
 <script setup>
 import { toRefs } from "vue";
+import Badge from "./ui-kit/Badge.vue";
 const props = defineProps({
   product: {
     type: Object,
     default: () => {},
   },
 });
- defineEmits(['addToCart'])
+defineEmits(["addToCart"]);
 
 const { product } = toRefs(props);
 </script>
@@ -32,14 +33,31 @@ const { product } = toRefs(props);
         :title="product.title">
         {{ product.title }}
       </h1>
-      <h2 class="description text-sm" :title="product.description">
+      <h2 class="description text-sm font-semibold" :title="product.description">
         {{ product.description }}
       </h2>
 
-      <span class="price font-bold text-gray-600"> ${{ product.actualPrice }} </span>
-      <span class="price line-through font-thin text-gray-400 text-xs"> ${{ product.price }} </span>
+      <span class="price font-bold text-gray-600">
+        ${{ product.discountPrice }}
+      </span>
 
-      <button class="bg-primary py-2 rounded-md text-white mt-6 hover:text-gray-200" @click="$emit('addToCart', product)">Add To Cart</button>
+      <div class="flex items-center gap-2">
+        <Badge :number="product.discountPercentage" />
+        <span class="price line-through font-thin text-gray-400 text-xs">
+          ${{ product.price }}
+        </span>
+      </div>
+
+      <div class="rating flex gap-1 items-center text-warning text-xs">
+        <i class="demo-icon icon-star"></i>
+        <span>{{product.rating}}</span>
+      </div>
+
+      <button
+        class="bg-primary py-2 rounded-md text-white mt-2 hover:text-gray-200"
+        @click="$emit('addToCart', product)">
+       <i class="icon-basket"></i> Add To Cart
+      </button>
     </div>
   </div>
 </template>

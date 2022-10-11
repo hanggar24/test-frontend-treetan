@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2022 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="plus" unicode="&#xe800;" d="M786 439v-107q0-22-16-38t-38-15h-232v-233q0-22-16-37t-38-16h-107q-22 0-38 16t-15 37v233h-232q-23 0-38 15t-16 38v107q0 23 16 38t38 16h232v232q0 22 15 38t38 16h107q23 0 38-16t16-38v-232h232q23 0 38-16t16-38z" horiz-adv-x="785.7" />
+
+<glyph glyph-name="minus" unicode="&#xe801;" d="M786 439v-107q0-22-16-38t-38-15h-678q-23 0-38 15t-16 38v107q0 23 16 38t38 16h678q23 0 38-16t16-38z" horiz-adv-x="785.7" />
+
+<glyph glyph-name="basket" unicode="&#xe802;" d="M139 76c45 0 79-35 79-79 0-43-34-78-79-78-43 0-78 35-78 78 0 44 35 79 78 79z m530 0c44 0 77-35 77-79 0-43-33-78-77-78s-79 35-79 78c0 44 35 79 79 79z m-478 588l565 0c38 0 55-22 55-50l0-233c0-27-20-48-46-50l-505-57c-41-5-46-58 3-58l478 0c55 0 55-82 0-82l-488 0c-110 0-152 122-65 185l43 33-155 339-76 0c-59 0-59 90 0 90l89 0c45 0 57-22 71-54z m345-70l-130 0 27-85 123 0z m-312 0l39-85 126 0-28 85-137 0z m109-241l100 10-33 101-119 0z m143 15l113 11-25 85-119 0z m267 29l0 67-133 0 20-78z m0 112l0 85-162 0 19-85 143 0z" horiz-adv-x="811" />
+
+<glyph glyph-name="star" unicode="&#xe803;" d="M929 489q0-12-15-27l-202-197 48-279q0-4 0-12 0-11-6-19t-17-9q-10 0-22 7l-251 132-250-132q-12-7-23-7-11 0-17 9t-6 19q0 4 1 12l48 279-203 197q-14 15-14 27 0 21 31 26l280 40 126 254q11 23 27 23t28-23l125-254 280-40q32-5 32-26z" horiz-adv-x="928.6" />
+</font>
+</defs>
+</svg>

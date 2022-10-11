@@ -4,7 +4,7 @@ import ListCatalogue from "./components/ListCatalogue.vue";
 import ShopingCart from "./components/ShopingCart.vue";
 
 const listProducts = ref([]);
-const getActualPrice = (price, discountPercentage) => {
+const getDiscountPrice = (price, discountPercentage) => {
   if (discountPercentage < 0) return price;
   const discountPrice = price - price * (discountPercentage / 100);
   return parseFloat(discountPrice);
@@ -15,7 +15,7 @@ const modifyListProducts = (products) => {
     return {
       ...item,
       qty: 0,
-      actualPrice: getActualPrice(item.price, item.discountPercentage),
+      discountPrice: getDiscountPrice(item.price, item.discountPercentage),
     };
   });
 };
@@ -40,7 +40,7 @@ const addToCart = (product) => {
     <h1 class="text-white font-semibold text-center">Shoping Cart App</h1>
   </header>
   <main class="bg-gray-100">
-    <div class="container py-16">
+    <div class="px-2 py-16">
       <div class="flex gap-10">
         <div class="w-4/6">
           <ListCatalogue
