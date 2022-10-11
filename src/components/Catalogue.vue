@@ -7,7 +7,7 @@ const props = defineProps({
     default: () => {},
   },
 });
-defineEmits(["addToCart"]);
+defineEmits(["addToCart", "removeFromCart"]);
 
 const { product } = toRefs(props);
 </script>
@@ -33,7 +33,9 @@ const { product } = toRefs(props);
         :title="product.title">
         {{ product.title }}
       </h1>
-      <h2 class="description text-sm font-semibold" :title="product.description">
+      <h2
+        class="description text-sm font-semibold"
+        :title="product.description">
         {{ product.description }}
       </h2>
 
@@ -48,16 +50,32 @@ const { product } = toRefs(props);
         </span>
       </div>
 
-      <div class="rating flex gap-1 items-center text-warning text-xs">
+      <div class="rating flex gap-1 items-center text-warning text-xs mb-2">
         <i class="demo-icon icon-star"></i>
-        <span>{{product.rating}}</span>
+        <span>{{ product.rating }}</span>
       </div>
+      <div  v-if="product.qty > 0" class="flex gap-4 justify-center items-center">
+        <button
+          class="bg-[#DAF6F4] w-10 h-10 rounded-sm text-primary "
+          @click="$emit('removeFromCart', product)">
+          <i class="icon-minus"></i>
+        </button>
 
+        <span class="font-semibold text-gray-500">{{product.qty}}</span>
+        <button
+          class="bg-[#DAF6F4] w-10 h-10 rounded-sm text-primary "
+          @click="$emit('addToCart', product)">
+          <i class="icon-plus"></i>
+        </button>
+      </div>
       <button
+       v-else
         class="bg-primary py-2 rounded-md text-white mt-2 hover:text-gray-200"
         @click="$emit('addToCart', product)">
-       <i class="icon-basket"></i> Add To Cart
+        <i class="icon-basket"></i> Add To Cart
       </button>
+
+   
     </div>
   </div>
 </template>

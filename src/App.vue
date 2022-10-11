@@ -10,20 +10,18 @@ const getDiscountPrice = (price, discountPercentage) => {
   return parseFloat(discountPrice);
 };
 
-const modifyListProducts = (products) => {
-  listProducts.value = products.map((item) => {
-    return {
-      ...item,
-      qty: 0,
-      discountPrice: getDiscountPrice(item.price, item.discountPercentage),
-    };
-  });
-};
+
 const getDataProduct = async () => {
   try {
     const response = await fetch("https://dummyjson.com/products");
     const { products } = await response.json();
-    modifyListProducts(products);
+    listProducts.value = products.map((item) => {
+    return {
+      ...item,
+      qty: 0,
+      discountPrice: getDiscountPrice(item.price, item.discountPercentage)
+    };
+  });
   } catch (error) {
     console.log(error);
   }
@@ -31,8 +29,20 @@ const getDataProduct = async () => {
 getDataProduct();
 
 const carts = ref([]);
+
+// const totalPrice = computed(() => carts.value.reduce((acc, cur) => acc.price + cur.price))
 const addToCart = (product) => {
-  carts.value.push(product);
+  const index = listProducts.value.findIndex((p) => p.id === product.id);
+  listProducts.value[index].qty++
+  const selectedShopingCarts = listProducts.value.filter(item => item.qty > 0)
+  carts.value = selectedShopingCarts
+};
+
+const removeFromCart = (product) => {
+  const index = listProducts.value.findIndex((p) => p.id === product.id);
+  listProducts.value[index].qty--
+  const selectedShopingCarts = listProducts.value.filter(item => item.qty > 0)
+  carts.value = selectedShopingCarts
 };
 </script>
 <template>
@@ -45,7 +55,8 @@ const addToCart = (product) => {
         <div class="w-4/6">
           <ListCatalogue
             :products="listProducts"
-            @add-to-cart="addToCart($event)"/>
+            @add-to-cart="addToCart($event)"
+            @remove-from-cart="removeFromCart($event)"/>
         </div>
         <div class="w-2/6">
           <ShopingCart :carts="carts" />

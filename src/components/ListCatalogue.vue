@@ -7,7 +7,7 @@ defineProps({
   },
 });
 
-defineEmits(['addToCart'])
+defineEmits(['addToCart', 'removeFromCart'])
 </script>
 
 <template>
@@ -16,6 +16,7 @@ defineEmits(['addToCart'])
       v-for="product in products"
       :key="product.id"
       :product="product"
-      @add-to-cart="$emit('addToCart', $event)"/>
+      @add-to-cart="$emit('addToCart', $event)"
+      @remove-from-cart="$emit('removeFromCart', $event)"/>
   </div>
 </template>
